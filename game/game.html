@@ -57,7 +57,10 @@
                 if (!cell.innerHTML && !gameOver){
                     cell.innerHTML = currentPlayer;
                     if (checkWinner()){
-                        document
+                        document.getElementById('result').innerHTML = 'Player ${currentPlayer} won!';
+                        gameOver = true; 
+                    } else if ([...document.querySelectorAll('.cell')].every(cell => cell.innerHTML)) {
+                        document.getElementById('result').innerHTML = 
                     }
                 }
             }
