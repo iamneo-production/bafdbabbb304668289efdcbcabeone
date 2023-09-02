@@ -46,6 +46,21 @@
             <div class="cell" onclick="makeMove(this)"></div>
             <div class="cell" onclick="makeMove(this)"></div>
         </div>
-        <p id="result"
+        <p id="result"></p>
+        <button onclick="resetGame()">Reset Game</button>
+
+        <script>
+            let currentPlayer = 'X';
+            let gameOver = false;
+
+            function makeMove(cell) {
+                if (!cell.innerHTML && !gameOver){
+                    cell.innerHTML = currentPlayer;
+                    if (checkWinner()){
+                        document
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
