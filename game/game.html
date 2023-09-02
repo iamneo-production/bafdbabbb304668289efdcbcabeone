@@ -1,99 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-gap: 5px;
-        }
-        .cell {
-            width: 100px;
-            height: 100px;
-            font-size: 36px;
-            text-align: center;
-            line-height: 100px;
-            border: 2px solid #000;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Tic-Tac-Toe</h1>
-    <div class="container" id="game-board">
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
-        <div class="cell" onclick="makeMove(this)"></div>
+
+  <body>
+    <div class="header">
+      <h1>Tic Tac Toe</h1>
     </div>
-    <p id="result"></p>
-    <button onclick="resetGame()">Reset Game</button>
 
-    <script>
-        let currentPlayer = 'X';
-        let gameOver = false;
+    <div class="box">
+      <div class="row">
+        <input class="btn" type="text" readonly>
+        <input class="btn" type="text" readonly>
+        <input class="btn" type="text" readonly>
+      </div>
+      <div class="row">
+        <input class="btn" type="text" readonly>
+        <input class="btn" type="text" readonly>
+        <input class="btn" type="text" readonly>
+      </div>
+      <div class="row">
+        <input class="btn" type="text" readonly>
+        <input class="btn" type="text" readonly>
+        <input class="btn" type="text" readonly>
+      </div>
 
-        function makeMove(cell) {
-            if (!cell.innerHTML && !gameOver) {
-                cell.innerHTML = currentPlayer;
-                if (checkWinner()) {
-                    document.getElementById('result').innerHTML = `Player ${currentPlayer} won!`;
-                    gameOver = true;
-                } else if ([...document.querySelectorAll('.cell')].every(cell => cell.innerHTML)) {
-                    document.getElementById('result').innerHTML = 'It\'s a Draw!';
-                    gameOver = true;
-                } else {
-                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                }
-            }
-        }
+    </div>
+    <div class = "result-container">
+    <p class="result">Player X Turn</p>
+    </div>
+    <div>
+      <button id="reset">Reset</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
 
-        function checkWinner() {
-            const cells = document.querySelectorAll('.cell');
-            const winningCombinations = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8],
-                [0, 3, 6], [1, 4, 7], [2, 5, 8],
-                [0, 4, 8], [2, 4, 6]
-            ];
-
-            for (const combo of winningCombinations) {
-                const [a, b, c] = combo;
-                if (cells[a].innerHTML && cells[a].innerHTML === cells[b].innerHTML && cells[a].innerHTML === cells[c].innerHTML) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        function resetGame() {
-            const cells = document.querySelectorAll('.cell');
-            cells.forEach(cell => cell.innerHTML = '');
-            document.getElementById('result').innerHTML = '';
-            currentPlayer = 'X';
-            gameOver = false;
-        }
-    </script>
-</body>
 </html>
