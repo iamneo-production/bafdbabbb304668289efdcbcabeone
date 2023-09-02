@@ -60,9 +60,19 @@
                         document.getElementById('result').innerHTML = 'Player ${currentPlayer} won!';
                         gameOver = true; 
                     } else if ([...document.querySelectorAll('.cell')].every(cell => cell.innerHTML)) {
-                        document.getElementById('result').innerHTML = 
+                        document.getElementById('result').innerHTML = 'It\'s a Draw!';
+                        gameOver = true;
+                    } else {
+                        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                     }
                 }
+            }
+
+            function checkWinner(){
+                const cells = document.querySelectorAll('.cell');
+                const winningCombinations = [
+                    [0, 1, 2], [0, 1, 2],
+                ]
             }
         </script>
     </body>
