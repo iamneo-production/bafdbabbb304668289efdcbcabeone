@@ -18,7 +18,34 @@
                 grid-template-columns: repeat(3, 100px);
                 grid-gap: 5px;
             }
-            
+            .cell{
+                width: 100px;
+                height: 100px;
+                font-size: 36px;
+                text-align: center;
+                line-height: 100px;
+                border: 2px solid 00;
+            }
+            button{
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 18px;
+            }
         </style>
     </head>
+    <body>
+        <h1>Tic-Tac-Toe</h1>
+        <div class="container" id="game-board">
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+        </div>
+        <p id="result"
+    </body>
 </html>
